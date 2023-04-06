@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		55369D9D29DE2C5200C3223F /* instrument1_chirhoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369D9C29DE2C5200C3223F /* instrument1_chirhoApp.swift */; };
-		55369D9F29DE2C5200C3223F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369D9E29DE2C5200C3223F /* ContentView.swift */; };
+		55369D9F29DE2C5200C3223F /* ContentViewChirho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369D9E29DE2C5200C3223F /* ContentViewChirho.swift */; };
 		55369DA129DE2C5300C3223F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55369DA029DE2C5300C3223F /* Assets.xcassets */; };
 		55369DA429DE2C5300C3223F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55369DA329DE2C5300C3223F /* Preview Assets.xcassets */; };
 		55369DAE29DE2C5300C3223F /* instrument1_chirhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369DAD29DE2C5300C3223F /* instrument1_chirhoTests.swift */; };
 		55369DB829DE2C5400C3223F /* instrument1_chirhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369DB729DE2C5400C3223F /* instrument1_chirhoUITests.swift */; };
 		55369DBA29DE2C5400C3223F /* instrument1_chirhoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369DB929DE2C5400C3223F /* instrument1_chirhoUITestsLaunchTests.swift */; };
+		55369DC829DE313400C3223F /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DC729DE313400C3223F /* AudioKit */; };
+		55369DCB29DE314E00C3223F /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DCA29DE314E00C3223F /* AudioKitEX */; };
+		55369DCE29DE316100C3223F /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DCD29DE316100C3223F /* Controls */; };
+		55369DD129DE317E00C3223F /* Keyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DD029DE317E00C3223F /* Keyboard */; };
+		55369DD429DE319800C3223F /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DD329DE319800C3223F /* SoundpipeAudioKit */; };
+		55369DD729DE31A300C3223F /* Tonic in Frameworks */ = {isa = PBXBuildFile; productRef = 55369DD629DE31A300C3223F /* Tonic */; };
+		55369DD929DE31ED00C3223F /* SynthUIViewChirho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369DD829DE31ED00C3223F /* SynthUIViewChirho.swift */; };
+		55369DDB29DE415D00C3223F /* SynthUIKeyboardViewChirho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55369DDA29DE415D00C3223F /* SynthUIKeyboardViewChirho.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,7 @@
 /* Begin PBXFileReference section */
 		55369D9929DE2C5200C3223F /* instrument1-chirho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instrument1-chirho.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55369D9C29DE2C5200C3223F /* instrument1_chirhoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instrument1_chirhoApp.swift; sourceTree = "<group>"; };
-		55369D9E29DE2C5200C3223F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		55369D9E29DE2C5200C3223F /* ContentViewChirho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewChirho.swift; sourceTree = "<group>"; };
 		55369DA029DE2C5300C3223F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55369DA329DE2C5300C3223F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		55369DA929DE2C5300C3223F /* instrument1-chirhoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "instrument1-chirhoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +52,8 @@
 		55369DB329DE2C5400C3223F /* instrument1-chirhoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "instrument1-chirhoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55369DB729DE2C5400C3223F /* instrument1_chirhoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instrument1_chirhoUITests.swift; sourceTree = "<group>"; };
 		55369DB929DE2C5400C3223F /* instrument1_chirhoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instrument1_chirhoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55369DD829DE31ED00C3223F /* SynthUIViewChirho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIViewChirho.swift; sourceTree = "<group>"; };
+		55369DDA29DE415D00C3223F /* SynthUIKeyboardViewChirho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthUIKeyboardViewChirho.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55369DD729DE31A300C3223F /* Tonic in Frameworks */,
+				55369DC829DE313400C3223F /* AudioKit in Frameworks */,
+				55369DD429DE319800C3223F /* SoundpipeAudioKit in Frameworks */,
+				55369DD129DE317E00C3223F /* Keyboard in Frameworks */,
+				55369DCE29DE316100C3223F /* Controls in Frameworks */,
+				55369DCB29DE314E00C3223F /* AudioKitEX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,9 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				55369D9C29DE2C5200C3223F /* instrument1_chirhoApp.swift */,
-				55369D9E29DE2C5200C3223F /* ContentView.swift */,
+				55369D9E29DE2C5200C3223F /* ContentViewChirho.swift */,
 				55369DA029DE2C5300C3223F /* Assets.xcassets */,
 				55369DA229DE2C5300C3223F /* Preview Content */,
+				55369DD829DE31ED00C3223F /* SynthUIViewChirho.swift */,
+				55369DDA29DE415D00C3223F /* SynthUIKeyboardViewChirho.swift */,
 			);
 			path = "instrument1-chirho";
 			sourceTree = "<group>";
@@ -143,6 +161,14 @@
 			dependencies = (
 			);
 			name = "instrument1-chirho";
+			packageProductDependencies = (
+				55369DC729DE313400C3223F /* AudioKit */,
+				55369DCA29DE314E00C3223F /* AudioKitEX */,
+				55369DCD29DE316100C3223F /* Controls */,
+				55369DD029DE317E00C3223F /* Keyboard */,
+				55369DD329DE319800C3223F /* SoundpipeAudioKit */,
+				55369DD629DE31A300C3223F /* Tonic */,
+			);
 			productName = "instrument1-chirho";
 			productReference = 55369D9929DE2C5200C3223F /* instrument1-chirho.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +241,14 @@
 				Base,
 			);
 			mainGroup = 55369D9029DE2C5200C3223F;
+			packageReferences = (
+				55369DC629DE313400C3223F /* XCRemoteSwiftPackageReference "AudioKit" */,
+				55369DC929DE314E00C3223F /* XCRemoteSwiftPackageReference "AudioKitEX" */,
+				55369DCC29DE316100C3223F /* XCRemoteSwiftPackageReference "Controls" */,
+				55369DCF29DE317E00C3223F /* XCRemoteSwiftPackageReference "Keyboard" */,
+				55369DD229DE319800C3223F /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				55369DD529DE31A300C3223F /* XCRemoteSwiftPackageReference "Tonic" */,
+			);
 			productRefGroup = 55369D9A29DE2C5200C3223F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55369D9F29DE2C5200C3223F /* ContentView.swift in Sources */,
+				55369D9F29DE2C5200C3223F /* ContentViewChirho.swift in Sources */,
+				55369DD929DE31ED00C3223F /* SynthUIViewChirho.swift in Sources */,
 				55369D9D29DE2C5200C3223F /* instrument1_chirhoApp.swift in Sources */,
+				55369DDB29DE415D00C3223F /* SynthUIKeyboardViewChirho.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +619,90 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55369DC629DE313400C3223F /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		55369DC929DE314E00C3223F /* XCRemoteSwiftPackageReference "AudioKitEX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitEX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		55369DCC29DE316100C3223F /* XCRemoteSwiftPackageReference "Controls" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Controls.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		55369DCF29DE317E00C3223F /* XCRemoteSwiftPackageReference "Keyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Keyboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		55369DD229DE319800C3223F /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		55369DD529DE31A300C3223F /* XCRemoteSwiftPackageReference "Tonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Tonic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55369DC729DE313400C3223F /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DC629DE313400C3223F /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		55369DCA29DE314E00C3223F /* AudioKitEX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DC929DE314E00C3223F /* XCRemoteSwiftPackageReference "AudioKitEX" */;
+			productName = AudioKitEX;
+		};
+		55369DCD29DE316100C3223F /* Controls */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DCC29DE316100C3223F /* XCRemoteSwiftPackageReference "Controls" */;
+			productName = Controls;
+		};
+		55369DD029DE317E00C3223F /* Keyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DCF29DE317E00C3223F /* XCRemoteSwiftPackageReference "Keyboard" */;
+			productName = Keyboard;
+		};
+		55369DD329DE319800C3223F /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DD229DE319800C3223F /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+		55369DD629DE31A300C3223F /* Tonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55369DD529DE31A300C3223F /* XCRemoteSwiftPackageReference "Tonic" */;
+			productName = Tonic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 55369D9129DE2C5200C3223F /* Project object */;
 }
