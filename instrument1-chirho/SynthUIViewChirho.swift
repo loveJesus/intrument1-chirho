@@ -21,8 +21,30 @@ struct MorphingOscillatorDataChirho {
 }
 class SynthClassChirho: ObservableObject {
     let engineChirho = AudioEngine()
+    static let initialCutoffChirho = 20_000.0
     @Published var octaveChirho = 1
     @Published var noteRangeChirho = 2
+    let filterChirho : MoogLadder
+    let ampEnvelopeChirho : AmplitudeEnvelope
+    @Published var cutoffChirho = AUValue(initialCutoffChirho) {
+        didSet {filterChirho.cutoffFrequency = AUValue(Int(cutoffChirho))}
+    }
+    @Published var resonanceChirho = AUValue(0.0) {
+        didSet {filterChirho.resonance = AUValue(resonanceChirho)}
+    }
+    @Published var attackChirho = AUValue(0.0) {
+        didSet {ampEnvelopeChirho.attackDuration = AUValue(attackChirho)}
+    }
+    @Published var decayChirho = AUValue(0.0) {
+        didSet {ampEnvelopeChirho.decayDuration = AUValue(decayChirho)}
+    }
+    @Published var sustainChirho = AUValue(1.0) {
+        didSet {ampEnvelopeChirho.sustainLevel = AUValue(sustainChirho)}
+    }
+    @Published var releaseChirho = AUValue(0.0) {
+        didSet {ampEnvelopeChirho.releaseDuration = AUValue(releaseChirho)}
+    }
+    
     
     let oscChirho = [
         MorphingOscillator(index:0.75, detuningOffset: -0.5),
@@ -30,7 +52,9 @@ class SynthClassChirho: ObservableObject {
         MorphingOscillator(index:2.75)]
     
     init() {
-        engineChirho.output = Mixer(oscChirho[0], oscChirho[1], oscChirho[2])
+        filterChirho = MoogLadder(Mixer(oscChirho[0], oscChirho[1], oscChirho[2]), cutoffFrequency: AUValue(Self.initialCutoffChirho), resonance: AUValue(0.0))
+        ampEnvelopeChirho = AmplitudeEnvelope(filterChirho, attackDuration: 0.00, decayDuration: 0.0, sustainLevel: 1.0, releaseDuration: 0)
+        engineChirho.output = ampEnvelopeChirho
         try? engineChirho.start()
     }
     
@@ -60,23 +84,55 @@ class SynthClassChirho: ObservableObject {
         dataChirho.frequencyChirho = AUValue(pitchChirho.midiNoteNumber).midiNoteToFrequency()
         dataChirho.octaveFrequencyChirho =
             AUValue(pitchChirho.midiNoteNumber - 12).midiNoteToFrequency()
-        
+        ampEnvelopeChirho.openGate()
     }
     func noteOffChirho(pitchChirho: Pitch) {
-        dataChirho.isPlayingChirho = false
+        //dataChirho.isPlayingChirho = false
+        ampEnvelopeChirho.closeGate()
     }
 }
 struct SynthUIViewChirho: View {
     @StateObject var conductorChirho = SynthClassChirho()
     var body: some View {
-        
         ZStack {
             RadialGradient(gradient: Gradient(colors: [.pink.opacity(0.5), .black]),
                            center: .center,
                            startRadius: 2,
                            endRadius: 650).edgesIgnoringSafeArea(.all)
             VStack{
-                Text("Hallelujah, World!")
+                HStack{
+                    VStack {
+                        Text("Filt.")
+                        Text("\(Int(conductorChirho.cutoffChirho))")
+                        SmallKnob(value: $conductorChirho.cutoffChirho, range: 12.0 ... 20_000.0).frame(maxWidth: 50)
+                    }
+                    VStack {
+                        Text("Res.")
+                        Text("\(Int(conductorChirho.resonanceChirho*100.0))")
+                        SmallKnob(value: $conductorChirho.resonanceChirho, range: 0.0 ... 1.0).frame(maxWidth: 50).padding(.bottom, 10)
+                    }
+                    VStack {
+                        Text("Att.")
+                        Text("\(Int(conductorChirho.attackChirho*1000.0))ms")
+                        SmallKnob(value: $conductorChirho.attackChirho, range: 0.0 ... 10.0).frame(maxWidth: 50).padding(.bottom, 10)
+                    }
+                    VStack {
+                        Text("Dec.")
+                        Text("\(Int(conductorChirho.decayChirho*1000.0))ms")
+                        SmallKnob(value: $conductorChirho.decayChirho, range: 0.0 ... 10.0).frame(maxWidth: 50).padding(.bottom, 10)
+                    }
+                    VStack {
+                        Text("Sus.")
+                        Text("\(Int(conductorChirho.sustainChirho*100.0))%")
+                        SmallKnob(value: $conductorChirho.sustainChirho, range: 0.0 ... 1.0).frame(maxWidth: 50).padding(.bottom, 10)
+                    }
+                    VStack {
+                        Text("Rel.")
+                        Text("\(Int(conductorChirho.releaseChirho*1000.0))ms")
+                        SmallKnob(value: $conductorChirho.releaseChirho, range: 0.0 ... 10.0).frame(maxWidth: 50).padding(.bottom, 10)
+                    }
+                }.padding(.bottom, 10).padding(.top, 10)
+
                 HStack {
                     Spacer()
                     Button(action: {
@@ -86,7 +142,7 @@ struct SynthUIViewChirho: View {
                     Button(action: {conductorChirho.noteRangeChirho = min(4, conductorChirho.noteRangeChirho + 1)}) {
                         Image(systemName: "arrowtriangle.forward.fill").foregroundColor(.white)}
                     Button(action: {
-                        conductorChirho.octaveChirho = max(1,conductorChirho.octaveChirho-1)}) {
+                        conductorChirho.octaveChirho = max(0,conductorChirho.octaveChirho-1)}) {
                             Image(systemName: "arrowtriangle.backward.fill").foregroundColor(.white)}
                     Text("Octave: \(conductorChirho.octaveChirho + 1)").frame(maxWidth: 150)
                     Button(action: {conductorChirho.octaveChirho = min(3, conductorChirho.octaveChirho + 1)}) {
@@ -94,11 +150,9 @@ struct SynthUIViewChirho: View {
                     
                     
                 }.frame(maxWidth: 400)
-                SynthUIKeyboardViewChirho(firstOctaveChirho: conductorChirho.octaveChirho, octaveCountChirho: conductorChirho.noteRangeChirho,  noteOnChirho: conductorChirho.noteOnChirho(pitchChirho:pointChirho:), noteOffChirho: conductorChirho.noteOffChirho(pitchChirho:))
-
-                
+                SynthUIKeyboardViewChirho(firstOctaveChirho: conductorChirho.octaveChirho, octaveCountChirho: conductorChirho.noteRangeChirho,  noteOnChirho: conductorChirho.noteOnChirho(pitchChirho:pointChirho:), noteOffChirho: conductorChirho.noteOffChirho(pitchChirho:)).frame(maxHeight: 600)
             }
-        }
+        }.foregroundColor(.white)
     }
 }
 
