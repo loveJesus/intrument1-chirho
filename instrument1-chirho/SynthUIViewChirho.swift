@@ -1,4 +1,6 @@
-//
+// For God so loved the world, that He gave His only begotten Son, that all who believe in Him should not perish but have everlasting life.
+// Thank You Lord Jesus Christ for being so good
+// help from https://www.youtube.com/watch?v=OoYEYCCJyCA synth app ~ 100 lines of code
 //  SynthChirhoUIView.swift
 //  instrument1-chirho
 //
